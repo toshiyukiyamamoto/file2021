@@ -10,7 +10,7 @@
 優秀なプログラマを目指して、バグの少ないコードを作り出そう
 
 ## 2章：名前に情報を詰め込む
-### 2.1 明確な単語を選ぶ
+### 明確な単語を選ぶ
 例「get」<br>
 <font color="Red">X</font>悪い例 
 ```
@@ -29,7 +29,8 @@ def FetchPage(url) :  //もしくはDownloadPage
 →explode()は”何かを分割する”を伝えれるが、split()との違いは名前からはわからない  
 2つの関数違い：区切り文字に正規表現を使えるか／使えないか
 https://ameblo.jp/gonta3333/entry-10384282091.html
-### 2.2 汎用的な名前を避ける
+
+### 汎用的な名前を避ける
 〜エンティティの値や目的を表した名前で選ぶ〜
 ```
 var euclidean_norm = function (v) {
@@ -88,13 +89,16 @@ for (int i = 0; i < clubs.size(); i++)
 ```
 ※if文のmembers[]とusers[]のインデックスが逆になっとる  
 ⬇︎イテレータが複数ある時は、もっと明確な名前をつける！
+```
 if (clubs[ci].members[ui] == users[mi])  #バグだ!最初の文字が違う
+```
 ⬇︎
-⭕️
+<font color="Red">◯</font>良い例
+```
 if (clubs[ci].members[mi] == users[ui])
+```
 
-
-### 2.3 具体的な名前を使う
+### 具体的な名前を使う
 ┗「ServerCanStart」を「CanListenPort」に  
 　　　〜抽象的-　　　　　　〜具体的〜  
 ※任意のTCP/IPポートをサーバがリッスンできるか確認するメソッド
@@ -118,7 +122,7 @@ class ClassName {
 ```
 #define DISALLOW_COPY_AND_ASSIGN(ClassName) ... 
 ```
-### 2.4 名前に情報を追加する
+### 名前に情報を追加する
 〜名前は短いコメントのようなものだ！〜  
 ┗16進数の文字列を持つ変数だったら？→「hex_id」とする (IDフォーマット優先)  
 値の単位・時間やバイト数のように計算できるものがあれば、変数名に単位を入れる  
@@ -159,7 +163,7 @@ document.writeln(" 読み込み時間:" + elapsed_ms / 1000 + " 秒 ");
 https://www.agent-grow.com/self20percent/2017/12/13/thinking-about-hungarian-notation/  
 https://wa3.i-3-i.info/word13959.html
 
-### 2.5 名前の長さを決める
+### 名前の長さを決める
 〜でも短ければ良いわけではない〜  
 スコープが小さければ短い名前でもOK  
 ```
@@ -191,7 +195,7 @@ BackEndManager→BEManager
 
 
 
-### 2.6 名前のフォーマットで情報を伝える
+### 名前のフォーマットで情報を伝える
 クラス名：CamelCase (キャメルケース)  
 変数名：lower_separated (小文字をアンダースコアで区切る)
 など..
@@ -206,14 +210,6 @@ BackEndManager→BEManager
  - 変数名に大切な情報を追加する。ミリ秒を表す変数名には、後ろに「ms」をつける。これからエスケープが必要な変数名には、前に 「raw」をつける。       
  - スコープの大きな変数には長い名前をつける。スコープが数画面に及ぶ 変数に 1 ~ 2 文字の短い暗号めいた名前をつけてはいけない。短い名前は スコープが数行の変数につけるべきだ。   
  - 大文字やアンダースコアなどに意味を含める。例えば、クラスのメンバ 変数にアンダースコアをつけて、ローカル変数と区別する。 
-
-
-
-
-
-
-
-
 
 ## 3章：誤解されやすい名前
 〜「他の意味と間違えられることはないか？」と自問自答する〜
@@ -243,7 +239,7 @@ def Truncate(text, max_chars):
 ┗ 1.関数名をTruncate(text, length)に変更  
 　 2. length を明確にする（今回は「文字列」を意味しているのでmax_chars）
 
-### 3.3 限界値を含めるときはminとmaxを使う
+### 限界値を含めるときはminとmaxを使う
 <font color="Red">X</font>
 ```
 CART_TOO_BIG_LIMIT = 10
@@ -258,7 +254,7 @@ MAX_ITEMS_IN_CART= 10
 if shopping_cart.num_items() > MAX_ITEMS_IN_CART:
     Error(" カートにある商品数が多すぎます。")
 ```
-### 3.4 範囲を指定するときは first と last を使う
+### 範囲を指定するときは first と last を使う
 <font color="Red">X</font>  
 ```
 print integer_range(start=2, stop=4)
@@ -271,14 +267,14 @@ set.PrintKeys(first=”Bart”, last=”Maggie”)
 ┗ 終端を範囲に含めるのなら、firstとlastを使うべし！
 
 
-### 3.5 包含 / 排他的範囲にはbeginとendを使う
+### 包含 / 排他的範囲にはbeginとendを使う
 
 例. 10月16日に開催されたイベントを全て印字したい  
 ```
 PrintEventsInRange("OCT 16 12:00am", "OCT 17 12:00am") 
                       〜begin〜           〜 end 〜
 ```
-### 3.6 ブール値の名前
+### ブール値の名前
 ・ブール値の変数やブール値を返す関数の名前を選ぶときはtrueとfalseの意味を明確にしなければならない！  
 <font color="Red">X</font>  
 ```
@@ -295,7 +291,7 @@ bool user_is_authenticated = true;
 ・ブール値の変数名は、頭に is・has・can・should などをつけてわかりやすくする  
 ・名前を肯定系にしたほうが短くて、声に出して読みいやすい！
 
-### 3.7 ユーザの期待に合わせる
+### ユーザの期待に合わせる
 例. get*()  
 getで始まるメソッドは「軽量アクセサ」であるという規約 
 ```
@@ -309,7 +305,7 @@ public double getMean() {
 →コストの高さが事前にわかるように computeMean() などの名前に変えるべき
 (もしくは、コストの高くない実装に変えるべき） 
 
-### 3.8 複数の名前を検討する
+### 複数の名前を検討する
 例)webサイトの実験用設定ファイル
 ```
 experiment_id: 101
@@ -325,7 +321,7 @@ the_other_experiment_id_I_want_to_reuse:100
 
 
 
-***Copy でいこう！***
+***よし、Copy でいこう！***
 ```
 experiment_id: 101 
 copy: 100 
@@ -345,10 +341,10 @@ copy: 100
 →意味のある順番を選んで、常にその順番を守る  
 ⑤空行を使って大きなブロックを論理的な「段落」に分ける
 
-### 4.2 一貫性のある簡潔な改行位置とクラス
+### 一貫性のある簡潔な改行位置とクラス
 ※適切な改行を入れ、繰り返されたコメントは簡潔にする(仮引数を一行で書く)
 
-### 4.3 メソッドを使った整列
+### メソッドを使った整列
 〜ヘルパーメソッドを使ってみる〜  
 <font color="Red">X</font>   
 ```
@@ -386,7 +382,7 @@ assert(full_name == expected_full_name);
 ・テストケースの大切な部分(名前やエラー文字列)が見やすくなった  
 ・テストの追加が簡単になった  
 
-### 4.4 縦の線を真っ直ぐにする
+### 縦の線を真っ直ぐにする
 <font color="Red">X</font>  
 ```
 CheckFullName("Doug Adams", "Mr. Douglas Adams", ""); 
@@ -404,7 +400,7 @@ CheckFullName("John"       , ""                   , "more than one result");
 ※縦の線を揃えることで流し読みが楽にできる(「似ているコードは似ているように見せる」)
 
 
-### 4.5 一貫性と意味のある並び
+### 一貫性と意味のある並び
 コードの並びがコードの正しさに影響を及ぼすことは少ない  
 ただし....  
 できれば意味のある順番に並べる！  
@@ -412,7 +408,7 @@ CheckFullName("John"       , ""                   , "more than one result");
 ・「最重要」なものから重要度順に！  
 ・アルファベット順に並べる  
 
-### 4.7 コードを「段落」に分割する
+### コードを「段落」に分割する
 ・似ている考えをグループにまとめて、他の考えと分けるため  
 ・視覚的な「踏み石」を提供できる  
 ・段落単位で移動できるようになる  
@@ -483,7 +479,7 @@ Node* FindNodeInSubtree(Node* subtree, string name, int depth);
 　ひどい名前の場合は、コメントではなく名前を変えよう！
 
 
-### 5.2 自分の考えを記録する
+### 自分の考えを記録する
 〜 監督のコメンタリー 〜  
 ```
 // このデータだとハッシュテーブルよりもバイナリツールの方が40%速かった
@@ -530,9 +526,7 @@ void SendEmail(string to, string subject, string body);
  - よくわからない引数には**インラインコメント**を使う  
  - 多くの意味が詰め込まれた言葉や表現を使って、コメントを簡潔に保つ
  
-
-
-### 6.1 コメントを簡潔に！
+### コメントを簡潔に！
 ```
 // intはCategoryType。                         
 // pairの最初のfloatは’score’。    
@@ -543,9 +537,7 @@ void SendEmail(string to, string subject, string body);
 //CategoryType -> (score, weight)
 ```
 
-
-
-### 6.2 曖昧な代名詞を避ける  
+### 曖昧な代名詞を避ける  
 <font color="Red">X</font>  
 ```
 //データをキャッシュに入れる。ただし、先にそのサイズをチェックする
@@ -559,7 +551,7 @@ void SendEmail(string to, string subject, string body);
 //データが十分に小さければ、それをキャッシュに入れる
 ```
 
-### 6.3 歯切れのイイ文章にする
+### 歯切れのイイ文章にする
 <font color="Red">X</font>
 ```
 #これまでにクロールした URL かどうかによって優先度を変える。 
@@ -571,7 +563,7 @@ void SendEmail(string to, string subject, string body);
 →より単純で、短くて、直接的  
 「クロールしていないURLの優先度が高い」という情報も含まれている
 
-### 6.4 関数の動作を正確に記述する
+### 関数の動作を正確に記述する
 <font color="Red">X</font>
 ```
 // このファイルに含まれる行数を返す。 
@@ -591,7 +583,7 @@ int CountLines(string filename) { ... }
 ```
 ※「改行がない時、0を返す」と「キャリッジリターン(\r)が無視される」が伝わる
 
-### 6.5 入出力のコーナーケースに実例を使う
+### 入出力のコーナーケースに実例を使う
 〜慎重に選んだ入出力の実例をコメントに書いておけば、それは千の言葉に等しい〜
 <font color="Red">X</font>
 ```
@@ -608,7 +600,7 @@ String Strip(String src, String chars) { ... }
 String Strip(String src, String chars) { ... } 
 ```
 
-### 6.6 コードの意図を書く
+### コードの意図を書く
 〜コメントとコードとの矛盾や冗長検査の役割を担う〜  
 <font color="Red">X</font>
 ```
@@ -629,7 +621,7 @@ DisplayPrice(it->price);
 →プログラムの動作を高いレベルから説明している
 
 
-### 6.7 「名前付き引数」コメント
+### 「名前付き引数」コメント
 <font color="Red">X</font>
 ```
 Connect(10, false); 
@@ -646,7 +638,7 @@ Connect(/* timeout_ms = */ 10, /* use_encryption = */ false);
 　このようにして名前を「改善」できる  
 【重要】ブール型の引数では、値の前に /* name = */ を置く
 
-### 6.8 情報密度の高い言葉を使う
+### 情報密度の高い言葉を使う
 〜繰り返し登場する問題や解決策を”パターンやイディオムを説明するための言葉”を使うことでコメントを簡潔にする〜  
 例①
 ```
