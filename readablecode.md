@@ -12,15 +12,15 @@
 ## 2章：名前に情報を詰め込む
 ### 明確な単語を選ぶ
 例「get」<br>
-<font color="Red">X</font>悪い例 
-```
+Bad 
+```php
 //インターネットからページを取得
 def GetPage(url) :                            
 ……
 ```
 →どこからページを取ってくるの？ローカルキャッシュ？データベース？  
-<font color="Red">◯</font>良い例
-```
+Good
+```php
 //インターネットからページを取得  
 def FetchPage(url) :  //もしくはDownloadPage                          
 ……
