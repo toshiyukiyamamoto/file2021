@@ -26,9 +26,9 @@ def GetPage(url) :    //インターネットからページを取得
 def FetchPage(url) :  //もしくはDownloadPage                          
 ……
 ```
- ※「 explode()とsplit() 」
+ ※「 explode()とsplit() 」  
 →explode()は”何かを分割する”を伝えれるが、split()との違いは名前からはわからない  
-2つの関数違い：区切り文字に正規表現を使えるか／使えないか
+2つの関数違い：区切り文字に正規表現を使えるか／使えないか  
 https://ameblo.jp/gonta3333/entry-10384282091.html
 
 ### 汎用的な名前を避ける
@@ -698,4 +698,141 @@ bytes_ expected は比較対象の値で、より「安定」している
  - 単純な条件を先に書く。  
 → if と else が同じ画面に表示されるので見やすい  
  - **関心を引く条件**や**目立つ条件**を先に書く  
+
+```php
+// Bad
+if (!url.HasQueryParameter("expand_all")) { 
+    response.Render(items);
+    ...
+} else {
+for (int i = 0; i < items.size(); i++) {
+    items[i].Expand(); }
+    ... 
+}
+```
+⬇︎ **expand_all**が関心を引く条件なので先に処理する  
+```php
+// Good
+if (url.HasQueryParameter("expand_all")) { 
+    for (int i = 0; i < items.size(); i++) {
+        items[i].Expand(); 
+    }
+    ... 
+} else {
+    response.Render(items);
+    ... 
+}
+```  
+### プログラミング構成要素を使う時は気を付けよう  
+#### 三項演算子  
+〜行数を短くするよりも、他の人が理解するのにかかる時間を短くする〜  
+```php
+// Bad
+return exponent >= 0 ? mantissa * (1 << exponent) : mantissa / (1 << -exponent);
+```
+⬇︎三項演算子を使わない方がより自然
+```php
+// Good
+if (exponent >= 0) {
+    return mantissa * (1 << exponent);
+} else {
+    return mantissa / (1 << -exponent);
+}
+
+```  
+
+#### do/whileループ  
+〜コードブロックを再実行する条件が **下** にある〜
+
+```php
+// Bad
+do { 
+    continue;
+} while (false);
+```
+内部にあるcontinue文が紛らわしい  
+(え！永久ループなの？)※違います 1回ループです
+
+#### ネストを浅く  
+```php
+// Bad
+if (user_result == SUCCESS) {
+    if (permission_result != SUCCESS) {
+        reply.WriteErrors("error reading permissions"); 
+        reply.Done();
+        return;
+    }
+    reply.WriteErrors(""); 
+} else {
+    reply.WriteErrors(user_result); 
+}
+reply.Done();
+```
+（「permission_result != SUCCESSが終わる  
+　　次は、permission_result == SUCCESSか  
+　　でも、これはまだuser_result == SUCCESS の内部だな」と考える  
+　　※ user_result と permission_result の値を常に覚えておかなければいけない）  
+→この深いネストをなんとかしたい  
+
+##### 【解決策①】早めに返してネストを削除する
+
+```php
+// Good
+if (user_result != SUCCESS) { 
+    reply.WriteErrors(user_result); 
+    reply.Done();
+    return;
+}
+if (permission_result != SUCCESS) { 
+    reply.WriteErrors(permission_result); 
+    reply.Done();
+    return;
+}
+
+reply.WriteErrors(""); r
+eply.Done();
+```
+精神的なスタックから「ポップ」する必要がなくなった  
+すべてのifブロックがreturnで終わる
+
+##### 【解決策②】ループ内のネストを削除する
+```php
+// Bad
+for (int i = 0; i < results.size(); i++) {
+    if (results[i] != NULL) {
+        non_null_count++;
+
+        if (results[i]->name != "") {
+            cout << "Considering candidate..." << endl;
+            ... 
+        }
+    }
+}
+```
+⬇︎ **continue**を使って早めに返す
+```php
+// Good
+for (int i = 0; i < results.size(); i++) { 
+    if (results[i] == NULL) continue; 
+    non_null_count++;
+
+    if (results[i]->name == "") continue;
+    cout << "Considering candidate..." << endl;
+
+    ... 
+}
+```
+→ if (...) return;が関数のガード節になるのと同じように、if (...) continue; 文がループのガード節になっている!
+
+### コードを追うのが難しくなる構成要素
+|       構成要素        | 高レベルの流れが不明瞭になる理由   |
+|:----------------------|:------------------------------|
+| スナッド                | どのコードがいつ実行されるのかよくわからない |
+| シグナル/割り込みハンドラ  | 他のコードが実行される可能性がある          |
+| 例外                    | いろんな関数呼び出しが終了しようとする        | 
+| 関数ポインタと無名関数      | コンパイル時に判別できないので、どのコードが実行され るのかわからない   |
+| 仮想メソッド               | object.virtualMethod() は未知のサブクラスのコードを呼 び出す可能性がある   |
+
+## 8章：巨大な式を分割する
+
 
