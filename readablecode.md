@@ -11,7 +11,7 @@
 
 ## 2章：名前に情報を詰め込む
 ### 明確な単語を選ぶ
-例「get」
+例「get」  
 Bad
 ```php
 //インターネットからページを取得
@@ -32,7 +32,7 @@ https://ameblo.jp/gonta3333/entry-10384282091.html
 
 ### 汎用的な名前を避ける
 〜エンティティの値や目的を表した名前で選ぶ〜
-```
+```php
 var euclidean_norm = function (v) {
       var retval = 0.0;
       for (var i = 0; i < v.length; i += 1) 
@@ -41,7 +41,7 @@ var euclidean_norm = function (v) {
 }; 
 ```
 ⬇︎変数の目的や値を表すものがイイ(“vの２乗の合計”を表現する)
-```
+```php
 var euclidean_norm = function (v) {
       var sum_squares = 0.0;
       for (var i = 0; i < v.length; i += 1) 
@@ -56,7 +56,7 @@ sum_squares += v[i];　　//合計する「square(2乗)」がない。バグだ!
 
 tmp(情報の一時的な保管)  
 <font color="Red">◯</font>良い例
-```
+```php
 if (right < left) { 
     tmp = right;  
     right = left; 
@@ -66,7 +66,7 @@ if (right < left) {
 ※このような場合は、tmp という名前で「この変数 には他に役割がない」という明確な意味を伝えている。(生存期間は数行のみ)  
 
 <font color="Red">X</font>悪い例
-```
+```php
 String tmp = user.name();
 tmp += " " + user.phone_number(); tmp += " " + user.email();
 ...
@@ -80,7 +80,7 @@ template.set("user_info", tmp);
 〜でも、これよりもイイ名前がある！〜  
 例.クラブ所属のユーザを調べるループ
 <font color="Red">X</font>悪い例
-```
+```php
 for (int i = 0; i < clubs.size(); i++)
       for (int j = 0; j < clubs[i].members.size(); j++) 
             for (int k = 0; k < users.size(); k++) 
@@ -89,12 +89,12 @@ for (int i = 0; i < clubs.size(); i++)
 ```
 ※if文のmembers[]とusers[]のインデックスが逆になっとる  
 ⬇︎イテレータが複数ある時は、もっと明確な名前をつける！
-```
+```php
 if (clubs[ci].members[ui] == users[mi])  #バグだ!最初の文字が違う
 ```
 ⬇︎
 <font color="Red">◯</font>良い例
-```
+```php
 if (clubs[ci].members[mi] == users[ui])
 ```
 
@@ -106,7 +106,7 @@ if (clubs[ci].members[mi] == users[ui])
 例. DISALLOW_EVIL_CONSTRUCTORS
  (メモリリワークなどの問題につながる”悪”のコンストラクタを許可しない規約)  
 マクロの定義
-```
+```php
 #define DISALLOW_EVIL_CONSTRUCTORS(ClassName) \ 
       ClassName(const ClassName&); \
       void operator=(const ClassName&); 
@@ -119,7 +119,7 @@ class ClassName {
 ```
 ※ 「EVIL(悪の)」 という言葉よりも、このマクロが「許可していないもの」を明確にするほうが大切(実際には operator=() メソッドも許可していない)  
 ↓あまり刺激的ではなく、より具体的な名前に変更
-```
+```php
 #define DISALLOW_COPY_AND_ASSIGN(ClassName) ... 
 ```
 ### 名前に情報を追加する
@@ -127,7 +127,7 @@ class ClassName {
 ┗16進数の文字列を持つ変数だったら？→「hex_id」とする (IDフォーマット優先)  
 値の単位・時間やバイト数のように計算できるものがあれば、変数名に単位を入れる  
 <font color="Red">X</font>悪い例
-```
+```php
 var start = (new Date()).getTime(); // ぺージの上部
 ...
 var elapsed = (new Date()).getTime() - start; // ページの下部 
@@ -135,7 +135,7 @@ document.writeln(" 読み込み時間:" + elapsed + " 秒 ");
 ```
 ※getTimeが秒ではなくミリ秒を返すため、このままだとうまく動かないので変数名に「 _ms 」を追加して、コードを修正  
 <font color="Red">◯</font>良い例  
-```
+```php
 var start_ms = (new Date()).getTime(); // ページの上部
 ...
 var elapsed_ms = (new Date()).getTime() - start; // ページの下部 
@@ -166,7 +166,7 @@ https://wa3.i-3-i.info/word13959.html
 ### 名前の長さを決める
 〜でも短ければ良いわけではない〜  
 スコープが小さければ短い名前でもOK  
-```
+```php
 if (debug) { 
     map<string,int> m; 
     LookUpNamesNumbers(&m); 
@@ -215,7 +215,7 @@ BackEndManager→BEManager
 〜「他の意味と間違えられることはないか？」と自問自答する〜
 
 例① filter()
-```
+```php
 results = Database.all_objects.filter("year <= 2011")
 ```
 →filterは「選択する」or「除外する」のどちらかわからない  
@@ -224,7 +224,7 @@ results = Database.all_objects.filter("year <= 2011")
 
 例② Clip(text, length)  
 <font color="Red">X</font>
-```
+```php
 #textの最後を切り落として、「...」をつける 
 def Clip(text, length):
 ... 
@@ -232,7 +232,7 @@ def Clip(text, length):
 ┗「最後からlength文字を削除する(remove)」  
 　「最大length文字まで切り詰める(truncate)」のどっち？  
 <font color="Red">◯</font>
-```
+```php
 def Truncate(text, max_chars):
 …
 ```
@@ -241,7 +241,7 @@ def Truncate(text, max_chars):
 
 ### 限界値を含めるときはminとmaxを使う
 <font color="Red">X</font>
-```
+```php
 CART_TOO_BIG_LIMIT = 10
 if shopping_cart.num_items() > CART_TOO_BIG_LIMIT:
     Error(" カートにある商品数が多すぎます。") 
@@ -249,7 +249,7 @@ if shopping_cart.num_items() > CART_TOO_BIG_LIMIT:
 ┗「未満(限界値を含まない)」  
 　「以上(限界値を含む)」のどちらかわからない  
 <font color="Red">◯</font>
-```
+```php
 MAX_ITEMS_IN_CART= 10
 if shopping_cart.num_items() > MAX_ITEMS_IN_CART:
     Error(" カートにある商品数が多すぎます。")
@@ -294,7 +294,7 @@ bool user_is_authenticated = true;
 ### ユーザの期待に合わせる
 例. get*()  
 getで始まるメソッドは「軽量アクセサ」であるという規約 
-```
+```php
 public double getMean() { 
          // 全てのサンプルをイテレートして、total / num_samplesを返す。
 }  
@@ -307,7 +307,7 @@ public double getMean() {
 
 ### 複数の名前を検討する
 例)webサイトの実験用設定ファイル
-```
+```php
 experiment_id: 101
 the_other_experiment_id_I_want_to_reuse:100
 [ 以下、変更が必要な情報だけ書き換える ]
@@ -347,7 +347,7 @@ copy: 100
 ### メソッドを使った整列
 〜ヘルパーメソッドを使ってみる〜  
 <font color="Red">X</font>   
-```
+```php
 DatabaseConnection database_connection;
 string error;
 assert(ExpandFullName(database_connection, "Doug Adams", &error) == "Mr. Douglas Adams");
@@ -361,7 +361,7 @@ assert(error == "more than one result");
 ```
 ⬇︎  
 <font color="Red">◯</font>  
-```
+```php
 CheckFullName("Doug Adams", "Mr. Douglas Adams", ""); 
 CheckFullName(" Jake Brown ", "Mr. Jacob Brown III", ""); 
 CheckFullName("No Such Guy", "", "no match found"); 
@@ -384,14 +384,14 @@ assert(full_name == expected_full_name);
 
 ### 縦の線を真っ直ぐにする
 <font color="Red">X</font>  
-```
+```php
 CheckFullName("Doug Adams", "Mr. Douglas Adams", ""); 
 CheckFullName(" Jake Brown ", "Mr. Jacob Brown III", ""); 
 CheckFullName("No Such Guy", "", "no match found"); 
 CheckFullName("John", "", "more than one result"); 
 ```
 <font color="Red">◯</font>  
-```
+```php
 CheckFullName("Doug Adams" , "Mr. Douglas Adams"  , ""); 
 CheckFullName("Jake Brown" , "Mr. Jacob Brown III", ""); 
 CheckFullName("No Such Guy", ""                   , "no match found"); 
@@ -414,7 +414,7 @@ CheckFullName("John"       , ""                   , "more than one result");
 ・段落単位で移動できるようになる  
 
 <font color="Red">X</font>
-```
+```php
 #ユーザのメール帳をインポートして、システムのユーザと照合する。 
 #そして、まだ友達になっていないユーザの一覧を表示する。 
 def suggest_new_friends(user, email_password):
@@ -429,7 +429,7 @@ def suggest_new_friends(user, email_password):
     return render("suggested_friends.html", display) 
 ```
 <font color="Red">◯</font>
-```
+```php
 def suggest_new_friends(user, email_password): 
     #ユーザの友達のメールアドレスを取得する。 
     friends = user.friends()
@@ -471,7 +471,7 @@ def suggest_new_friends(user, email_password):
 
 ### コメントのためのコメントをしない！
 <font color="Red">X</font>  
-```
+```php
 // 与えられた subtree に含まれる name と depth に合致した Node を見つける。 
 Node* FindNodeInSubtree(Node* subtree, string name, int depth); 
 ```
@@ -603,7 +603,7 @@ String Strip(String src, String chars) { ... }
 ### コードの意図を書く
 〜コメントとコードとの矛盾や冗長検査の役割を担う〜  
 <font color="Red">X</font>
-```
+```php
 // listを逆順にイテレートする
 for (list<Product>::reverse_iterator it = products.rbegin(); it != products.rend(); 
 ++it) 
@@ -611,7 +611,7 @@ DisplayPrice(it->price);
 ...
 ```
 <font color="Red">◯</font>
-```
+```php
 // 値段の高い順に表示する
 for (list<Product>::reverse_iterator it = products.rbegin(); it != products.rend(); 
 ++it) 
