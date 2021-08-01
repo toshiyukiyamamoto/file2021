@@ -12,7 +12,7 @@
 ### 明確な単語を選ぶ 
 
 ```php
-//Bad
+// Bad
 def GetPage(url) :    //インターネットからページを取得                        
 ……
 ```
@@ -20,7 +20,7 @@ def GetPage(url) :    //インターネットからページを取得
 
 
 ```php
-//Good  
+// Good  
 def FetchPage(url) :  //もしくはDownloadPage                          
 ……
 ```
@@ -55,7 +55,7 @@ sum_squares += v[i];　　//合計する「square(2乗)」がない。バグだ!
 tmp(情報の一時的な保管)  
 
 ```php
-//Good
+// Good
 if (right < left) { 
     tmp = right;  
     right = left; 
@@ -66,7 +66,7 @@ if (right < left) {
 
 
 ```php
-//Bad
+// Bad
 String tmp = user.name();
 tmp += " " + user.phone_number(); tmp += " " + user.email();
 ...
@@ -77,10 +77,10 @@ template.set("user_info", tmp);
 
 
 ### ループとイテレータ( i・j・k・iter )
-〜でも、これよりもイイ名前がある！〜  
+**でも、これよりもイイ名前がある！**  
 例.クラブ所属のユーザを調べるループ
-<font color="Red">X</font>悪い例
 ```php
+//Bad
 for (int i = 0; i < clubs.size(); i++)
       for (int j = 0; j < clubs[i].members.size(); j++) 
             for (int k = 0; k < users.size(); k++) 
@@ -93,8 +93,8 @@ for (int i = 0; i < clubs.size(); i++)
 if (clubs[ci].members[ui] == users[mi])  #バグだ!最初の文字が違う
 ```
 ⬇︎
-<font color="Red">◯</font>良い例
 ```php
+// Good
 if (clubs[ci].members[mi] == users[ui])
 ```
 
@@ -105,7 +105,6 @@ if (clubs[ci].members[mi] == users[ui])
 
 例. DISALLOW_EVIL_CONSTRUCTORS
  (メモリリワークなどの問題につながる”悪”のコンストラクタを許可しない規約)  
-マクロの定義
 ```php
 #define DISALLOW_EVIL_CONSTRUCTORS(ClassName) \ 
       ClassName(const ClassName&); \
@@ -123,19 +122,19 @@ class ClassName {
 #define DISALLOW_COPY_AND_ASSIGN(ClassName) ... 
 ```
 ### 名前に情報を追加する
-〜名前は短いコメントのようなものだ！〜  
+**名前は短いコメントのようなものだ！**  
 ┗16進数の文字列を持つ変数だったら？→「hex_id」とする (IDフォーマット優先)  
-値の単位・時間やバイト数のように計算できるものがあれば、変数名に単位を入れる  
-<font color="Red">X</font>悪い例
+　値の単位・時間やバイト数のように計算できるものがあれば、変数名に単位を入れる  
 ```php
+//Bad
 var start = (new Date()).getTime(); // ぺージの上部
 ...
 var elapsed = (new Date()).getTime() - start; // ページの下部 
 document.writeln(" 読み込み時間:" + elapsed + " 秒 "); 
 ```
-※getTimeが秒ではなくミリ秒を返すため、このままだとうまく動かないので変数名に「 _ms 」を追加して、コードを修正  
-<font color="Red">◯</font>良い例  
+※getTimeが秒ではなくミリ秒を返すため、このままだとうまく動かないので変数名に「 _ms 」を追加して、コードを修正    
 ```php
+//Good
 var start_ms = (new Date()).getTime(); // ページの上部
 ...
 var elapsed_ms = (new Date()).getTime() - start; // ページの下部 
@@ -164,7 +163,7 @@ https://www.agent-grow.com/self20percent/2017/12/13/thinking-about-hungarian-not
 https://wa3.i-3-i.info/word13959.html
 
 ### 名前の長さを決める
-〜でも短ければ良いわけではない〜  
+**〜でも短ければ良いわけではない〜**  
 スコープが小さければ短い名前でもOK  
 ```php
 if (debug) { 
@@ -175,23 +174,25 @@ if (debug) {
 ```
 ※コードを理解するための情報(変数の型・初期値・破棄方法)が近くにあるので、mでも大丈夫
 
-頭文字と省略形  
-<font color="Red">◯</font>
+**頭文字と省略形**  
 ```
-evaluation→eval
-document→doc
-string→str
+// Good
+evaluation → eval
+document   → doc
+string     → str
 ```
-<font color="Red">X</font>  
+  
 ```
-BackEndManager→BEManager
+// Bad
+BackEndManager → BEManager
 ```
-ん？知らない。これは暗号？？
+→ん？BE？知らない。これは暗号か？
 
-不要な単語を捨てる  
-┗ ConvertToString()→ToString()  
-　 DoServeLoop()　 →ServeLoop()
-
+**不要な単語を捨てる**  
+```
+ConvertToString() → ToString()  
+DoServeLoop()     → ServeLoop()
+```
 
 
 
@@ -212,7 +213,7 @@ BackEndManager→BEManager
  - 大文字やアンダースコアなどに意味を含める。例えば、クラスのメンバ 変数にアンダースコアをつけて、ローカル変数と区別する。 
 
 ## 3章：誤解されやすい名前
-〜「他の意味と間違えられることはないか？」と自問自答する〜
+**〜「他の意味と間違えられることはないか？」と自問自答する〜**
 
 例① filter()
 ```php
@@ -220,48 +221,48 @@ results = Database.all_objects.filter("year <= 2011")
 ```
 →filterは「選択する」or「除外する」のどちらかわからない  
 ┗「選択する」：select()  
-　「除外する」：exclude()
+　「除外する」：exclude()  
 
 例② Clip(text, length)  
-<font color="Red">X</font>
 ```php
+// Bad
 #textの最後を切り落として、「...」をつける 
 def Clip(text, length):
 ... 
 ```
 ┗「最後からlength文字を削除する(remove)」  
 　「最大length文字まで切り詰める(truncate)」のどっち？  
-<font color="Red">◯</font>
 ```php
+// Good
 def Truncate(text, max_chars):
 …
 ```
 ┗ 1.関数名をTruncate(text, length)に変更  
-　 2. length を明確にする（今回は「文字列」を意味しているのでmax_chars）
+　 1. length を明確にする（今回は「文字列」を意味しているのでmax_chars）
 
 ### 限界値を含めるときはminとmaxを使う
-<font color="Red">X</font>
 ```php
+// Bad
 CART_TOO_BIG_LIMIT = 10
 if shopping_cart.num_items() > CART_TOO_BIG_LIMIT:
     Error(" カートにある商品数が多すぎます。") 
 ``` 
 ┗「未満(限界値を含まない)」  
 　「以上(限界値を含む)」のどちらかわからない  
-<font color="Red">◯</font>
 ```php
+// Good
 MAX_ITEMS_IN_CART= 10
 if shopping_cart.num_items() > MAX_ITEMS_IN_CART:
     Error(" カートにある商品数が多すぎます。")
 ```
-### 範囲を指定するときは first と last を使う
-<font color="Red">X</font>  
+### 範囲を指定するときは first と last を使う 
 ```
+// Bad
 print integer_range(start=2, stop=4)
 ```
-┗ これが示すのは、「2,3」or「2,3,4」のどっち？(あるいはその他？)  
-<font color="Red">◯</font>  
+┗ これが示すのは、「2,3」or「2,3,4」のどっち？(あるいはその他？)   
 ```
+// Good
 set.PrintKeys(first=”Bart”, last=”Maggie”)
 ```
 ┗ 終端を範囲に含めるのなら、firstとlastを使うべし！
@@ -275,15 +276,15 @@ PrintEventsInRange("OCT 16 12:00am", "OCT 17 12:00am")
                       〜begin〜           〜 end 〜
 ```
 ### ブール値の名前
-・ブール値の変数やブール値を返す関数の名前を選ぶときはtrueとfalseの意味を明確にしなければならない！  
-<font color="Red">X</font>  
+・ブール値の変数やブール値を返す関数の名前を選ぶときはtrueとfalseの意味を明確にしなければならない！   
 ```
+// Bad
 bool read_password = true;
 ```
 ┗「パスワードをこれから読み取る必要がある」  
 　「パスワードをすでに読み取っている」のどちらなのか不明  
-<font color="Red">◯</font>  
 ```
+// Good
 bool need_password = true;   
 
 bool user_is_authenticated = true;
@@ -337,7 +338,8 @@ copy: 100
 ①適切な改行  
 ②複数のコードブロックで同じようなことをしていたら、シルエットも同じようにする  
 ③コードの「列」を整理すれば、概要が把握しやすくなる
-④ある場所でA・B・Cのように並んでいたものを、他の場所でB・C・Aのように並べてはいけない！  
+④ある場所でA・B・Cのように並んでいたものを  
+　他の場所でB・C・Aのように並べてはいけない！  
 →意味のある順番を選んで、常にその順番を守る  
 ⑤空行を使って大きなブロックを論理的な「段落」に分ける
 
@@ -345,9 +347,9 @@ copy: 100
 ※適切な改行を入れ、繰り返されたコメントは簡潔にする(仮引数を一行で書く)
 
 ### メソッドを使った整列
-〜ヘルパーメソッドを使ってみる〜  
-<font color="Red">X</font>   
+**〜ヘルパーメソッドを使ってみる〜**     
 ```php
+// Bad
 DatabaseConnection database_connection;
 string error;
 assert(ExpandFullName(database_connection, "Doug Adams", &error) == "Mr. Douglas Adams");
@@ -360,8 +362,8 @@ assert(ExpandFullName(database_connection, "John", &error) == "");
 assert(error == "more than one result"); 
 ```
 ⬇︎  
-<font color="Red">◯</font>  
 ```php
+// Good
 CheckFullName("Doug Adams", "Mr. Douglas Adams", ""); 
 CheckFullName(" Jake Brown ", "Mr. Jacob Brown III", ""); 
 CheckFullName("No Such Guy", "", "no match found"); 
@@ -382,16 +384,17 @@ assert(full_name == expected_full_name);
 ・テストケースの大切な部分(名前やエラー文字列)が見やすくなった  
 ・テストの追加が簡単になった  
 
-### 縦の線を真っ直ぐにする
-<font color="Red">X</font>  
+### 縦の線を真っ直ぐにする 
 ```php
+// Bad
 CheckFullName("Doug Adams", "Mr. Douglas Adams", ""); 
 CheckFullName(" Jake Brown ", "Mr. Jacob Brown III", ""); 
 CheckFullName("No Such Guy", "", "no match found"); 
 CheckFullName("John", "", "more than one result"); 
 ```
-<font color="Red">◯</font>  
+ 
 ```php
+// Good
 CheckFullName("Doug Adams" , "Mr. Douglas Adams"  , ""); 
 CheckFullName("Jake Brown" , "Mr. Jacob Brown III", ""); 
 CheckFullName("No Such Guy", ""                   , "no match found"); 
@@ -402,19 +405,18 @@ CheckFullName("John"       , ""                   , "more than one result");
 
 ### 一貫性と意味のある並び
 コードの並びがコードの正しさに影響を及ぼすことは少ない  
-ただし....  
-できれば意味のある順番に並べる！  
-・対応するHTMLフォームの<inputフィールド>と同じ並び順にする  
-・「最重要」なものから重要度順に！  
-・アルファベット順に並べる  
+ただし....  できれば意味のある順番に並べる！  
+ - 対応するHTMLフォームの<inputフィールド>と同じ並び順にする  
+ - 「最重要」なものから重要度順に！  
+ - アルファベット順に並べる  
 
 ### コードを「段落」に分割する
 ・似ている考えをグループにまとめて、他の考えと分けるため  
 ・視覚的な「踏み石」を提供できる  
 ・段落単位で移動できるようになる  
 
-<font color="Red">X</font>
 ```php
+// Bad
 #ユーザのメール帳をインポートして、システムのユーザと照合する。 
 #そして、まだ友達になっていないユーザの一覧を表示する。 
 def suggest_new_friends(user, email_password):
@@ -428,8 +430,8 @@ def suggest_new_friends(user, email_password):
     display['suggested_friends'] = suggested_friends
     return render("suggested_friends.html", display) 
 ```
-<font color="Red">◯</font>
 ```php
+// Good
 def suggest_new_friends(user, email_password): 
     #ユーザの友達のメールアドレスを取得する。 
     friends = user.friends()
@@ -452,8 +454,7 @@ def suggest_new_friends(user, email_password):
 ```
 
 ## 5章：コメントすべきことを知る
-〜コメントの目的は、書き手の意図を読み手に知らせることである〜  
-**まとめ**
+**〜コメントの目的は、書き手の意図を読み手に知らせることである〜**  
 #### コメントすべきではないこと
  - コードからすぐに抽出できること  
  - ひどいコードを補う「補助的コメント」  
@@ -469,9 +470,9 @@ def suggest_new_friends(user, email_password):
  - 読み手が細部に囚われないようにコードブロックにコメントをつけて概要をまとめる
  
 
-### コメントのためのコメントをしない！
-<font color="Red">X</font>  
+### コメントのためのコメントをしない！ 
 ```php
+// Bad
 // 与えられた subtree に含まれる name と depth に合致した Node を見つける。 
 Node* FindNodeInSubtree(Node* subtree, string name, int depth); 
 ```
@@ -508,7 +509,7 @@ void SendEmail(string to, string subject, string body);
 ※この関数の実装では、外部のメールサービスに接続している。その接続には1秒以上かかり、このことを知らないウェブアプリケーション開発者が、HTTPリクエストの処理中に誤ってこの関数を呼び出してしまうかもしれない  
 (メールサービスが ダウンしていると、ウェブアプリケーションが「ハング」してしまう) 
 # <font color="Red">【 重要 】</font>ライターズブロックを乗り越えろ！
-〜とりあえず書いてみよう(そこから詳細な言葉に置き換える)〜
+**〜とりあえず書いてみよう(そこから詳細な言葉に置き換える)〜**
 
 **手順**  
 ① 頭の中にあるコメントをとにかく書き出す  
@@ -516,7 +517,7 @@ void SendEmail(string to, string subject, string body);
 ③改善する
 
 ## 6章：コメントは正確で解決に  
-〜小さな領域にできるだけ多くの情報を詰め込んだコメントを書く〜  
+**〜小さな領域にできるだけ多くの情報を詰め込んだコメントを書く〜**  
 
 ****まとめ****
  - 複数のものを指す可能性がある代名詞(それ,これ)を避ける  
@@ -538,13 +539,13 @@ void SendEmail(string to, string subject, string body);
 ```
 
 ### 曖昧な代名詞を避ける  
-<font color="Red">X</font>  
+``x``  
 ```
 //データをキャッシュに入れる。ただし、先にそのサイズをチェックする
 ```
 → ん？「その」ってどれのこと？データorキャッシュ？
 
-<font color="Red">◯</font>
+``◯``
 ```
 //データをキャッシュに入れる。ただし、先にデータのサイズをチェックする
 
@@ -552,11 +553,11 @@ void SendEmail(string to, string subject, string body);
 ```
 
 ### 歯切れのイイ文章にする
-<font color="Red">X</font>
+``x``
 ```
 #これまでにクロールした URL かどうかによって優先度を変える。 
 ```
-<font color="Red">◯</font>
+``◯``
 ```
 #これまでにクロールしていない URL の優先度を高くする。 
 ```
@@ -564,7 +565,7 @@ void SendEmail(string to, string subject, string body);
 「クロールしていないURLの優先度が高い」という情報も含まれている
 
 ### 関数の動作を正確に記述する
-<font color="Red">X</font>
+``x``
 ```
 // このファイルに含まれる行数を返す。 
 int CountLines(string filename) { ... } 
@@ -576,7 +577,7 @@ int CountLines(string filename) { ... }
 　　 “hello\n world”は、1行or2行?  
 　　 “hello\n\r cruel\n world\r”は、2行or3行or4行?  
 
-<font color="Red">◯</font>
+``◯``
 ```
 // このファイルに含まれる改行文字(‘\n’)を返す。 
 int CountLines(string filename) { ... }
@@ -584,8 +585,8 @@ int CountLines(string filename) { ... }
 ※「改行がない時、0を返す」と「キャリッジリターン(\r)が無視される」が伝わる
 
 ### 入出力のコーナーケースに実例を使う
-〜慎重に選んだ入出力の実例をコメントに書いておけば、それは千の言葉に等しい〜
-<font color="Red">X</font>
+**〜慎重に選んだ入出力の実例をコメントに書いておけば、それは千の言葉に等しい〜**  
+``x``
 ```
 // 'src' の先頭や末尾にある 'chars' を除去する。 
 String Strip(String src, String chars) { ... } 
@@ -594,24 +595,24 @@ String Strip(String src, String chars) { ... }
 ┗ chars は、除去する文字列なのか、順序のない文字集合なのか？  
 　 src の末尾に複数の chars があったらどうなるのか？  
 
-<font color="Red">◯</font>
+``◯``
 ```
 // 実例: Strip(“abba/a/ba”, ”ab”)は”/a/”を返す　 
 String Strip(String src, String chars) { ... } 
 ```
 
 ### コードの意図を書く
-〜コメントとコードとの矛盾や冗長検査の役割を担う〜  
-<font color="Red">X</font>
+**〜コメントとコードとの矛盾や冗長検査の役割を担う〜**  
 ```php
+// Bad
 // listを逆順にイテレートする
 for (list<Product>::reverse_iterator it = products.rbegin(); it != products.rend(); 
 ++it) 
 DisplayPrice(it->price); 
 ...
 ```
-<font color="Red">◯</font>
 ```php
+// Good
 // 値段の高い順に表示する
 for (list<Product>::reverse_iterator it = products.rbegin(); it != products.rend(); 
 ++it) 
@@ -622,14 +623,14 @@ DisplayPrice(it->price);
 
 
 ### 「名前付き引数」コメント
-<font color="Red">X</font>
 ```
+// Bad
 Connect(10, false); 
-```
+```  
 ┗ 数値とブール値が渡されているけどコメントがないので、なんだかよくわからない
 
-<font color="Red">◯</font>
 ```
+// Good
 // 引数にコメントをつけて関数を呼び出す
 Connect(/* timeout_ms = */ 10, /* use_encryption = */ false);
 ``` 
@@ -639,7 +640,7 @@ Connect(/* timeout_ms = */ 10, /* use_encryption = */ false);
 【重要】ブール型の引数では、値の前に /* name = */ を置く
 
 ### 情報密度の高い言葉を使う
-〜繰り返し登場する問題や解決策を”パターンやイディオムを説明するための言葉”を使うことでコメントを簡潔にする〜  
+**〜繰り返し登場する問題や解決策を”パターンやイディオムを説明するための言葉”を使うことでコメントを簡潔にする〜**  
 例①
 ```
 // このクラスには大量のメンバがある。同じ情報はデータベースにも保管されている。ただし、
