@@ -41,16 +41,17 @@
 感想：「実際にファイルやディレクトリを操作できている！」  
 
 #### 【テスト】  
-1. ファイルやディレクトリを参照するコマンド  
-→「 ls 」  
+Q1. ファイルやディレクトリを参照するコマンド  
+A. ``ls``
 
-2. /media/cdromの中身を最新更新日順に並べて表現するコマンド  
-→「 ls -lt /media/cdrom 」  
+Q2. /media/cdromの中身を最新更新日順に並べて表現するコマンド  
+A. ``ls -lt /media/cdrom``  
 
-3. 今いるパスを表示するコマンド  
-→「 echo $PATH 」  
+Q3. 今いるパスを表示するコマンド  
+A. ``echo $PATH ``  
 
-4. /home/userフォルダにあるtestというファイルを/root/backupフォルダに移動させるコマンド  
+Q4. /home/userフォルダにあるtestというファイルを/root/backupフォルダに移動させるコマンド  
+A.
 ```
 { mv } /home/user/test /root/backup  
 { ls -l } /root/backup   
@@ -59,8 +60,8 @@ drwxr-xr-x@ 12 toshiyukiyamamoto  staff  384  7  4 17:35 docker_container
 …..
 ```  
 
-5. パス/etcの中のファイルでファイル名の一部に「resolv」という文字列が含まれているファイルを検索するコマンド  
-→「 ls *resolv 」(ワイルドカード”＊”を使用する)
+Q5. パス/etcの中のファイルでファイル名の一部に「resolv」という文字列が含まれているファイルを検索するコマンド  
+A. ``ls *resolv 」(ワイルドカード”＊”を使用する)``
 
 
 ## 4章 正規表現とパイプ
@@ -81,20 +82,20 @@ ls -l /usr/bin | less
 〜ファイル全体からファイル全体から/正規表現に一致する行を/表示する〜  
 
 #### 【テスト】
-1. grepコマンドを利用し、行頭がaまたはbで始まる行を抽出できる正規表現を以下の4つから選びなさい  
-**A**:   4.  grep -e ^[ab]  
+Q1. grepコマンドを利用し、行頭がaまたはbで始まる行を抽出できる正規表現を以下の4つから選びなさい  
+A: ``4.grep -e ^[ab]``  
 
-2. 「ls /usr/bin | grep -e ^a..$」というコマンドを実行した場合、どのような結果になるか答えよ  
-A:  /usr/bin ファイル内のaで始まり、aと行末の間に２文字入っている文字列を出力する  
+Q2. 「ls /usr/bin | grep -e ^a..$」というコマンドを実行した場合、どのような結果になるか答えよ  
+A: ``/usr/bin ファイル内のaで始まり、aと行末の間に２文字入っている文字列を出力する``  
 
-3. パス/etcの中にあるファイルでファイル名がconfで終わるものをgrepとパイプを用いて記述しなさい  
-A:  ls /etc | grep -e $conf  
+Q3. パス/etcの中にあるファイルでファイル名がconfで終わるものをgrepとパイプを用いて記述しなさい  
+A: ``ls /etc | grep -e $conf``  
 
-4. ls -lを実行した結果をls-resultファイルに書き込む場合のコマンドを記述しなさい  
-A: ls-l > ~ls-result  
+Q4. ls -lを実行した結果をls-resultファイルに書き込む場合のコマンドを記述しなさい  
+A: ``ls-l > ~ls-result``  
 
-5. chkconfig --listの実行結果からiptablesだけを取り込んで表示するコマンドをgrepを使って記述しなさい  
-A: chkconfig --list | grep iptables
+Q5. chkconfig --listの実行結果からiptablesだけを取り込んで表示するコマンドをgrepを使って記述しなさい  
+A: ``chkconfig --list | grep iptables``
 
 
 ## 5章 基本的なコマンド2  
@@ -123,16 +124,15 @@ red
 blue
 ```  
 
-Q3. file1とfile2の内容の違いを比較するコマンドを記述しなさい。
-```
-% diff file1 file2
-```
+Q3. file1とfile2の内容の違いを比較するコマンドを記述しなさい。  
+A. ``% diff file1 file2``  
+
 Q4. 以下のコマンドを実行したところ、何も結果が表示されずコマンド待ち状態になりました。何が考えられるか答えなさい。
 ```
 $ diff test1 test2
 $  
 ```
-A.　file1とfile2 の内容が同じ可能性がある
+A. ``file1とfile2 の内容が同じ可能性がある``
 
 Q5. パス /etcのlsコマンドの実行結果が保存されたファイルls-etcの終わり8行分を表示する場合のコマンドを記述しなさい  
 ```
@@ -221,3 +221,49 @@ Q5. umask 022にした後umaskファイルを作成した場合に設定され�
 A. ``4. -rw-r--r--. 1 user user 0 5月 29 19:24 2012 umask``  
 
 ## 9章：シェルスクリプト
+#### 【テスト】  
+Q1. 実行結果が解になるように、変数"LPI"に入力した値を出力しなさい  
+```
+// Answer
+$ LPI = linux
+$ echo ( $LPI )
+linux 
+```  
+Q2. 以下のスクリプトの空欄を埋め、カレントディレクトリにファイル lpi.txt が存在しているか確認するスクリプトを完成させなさい  
+```
+// Answer
+#!/bin/bash
+if [ -f lpi.txt ]; then
+  echo file exists.
+(else)
+  echo file does not exists.
+(if)
+```  
+Q3. 以下のスクリプトの空欄を埋め、カレントディレクトリ内のすべてのファイル（サブディレクトリを除く）の種類を表示するスクリプトを完成させなさい  
+```
+// Answer
+#!/bin/bash
+for i in `ls`
+do
+  if [ ! -d $i ]; then
+    file $i
+  fi
+(done) 
+```  
+Q4. 次の動作をするシェルスクリプトを書きなさい  
+1. 実行すると、age: としての年齢の入力を促される  
+2. 20以上の値を入れると'you can drink.'と出力される  
+3. 20未満の値を入れると'you cannot drink.'と出力される  
+```
+// Answer
+#!/bin/bash
+echo -n age:; read age
+if [ $age -ge 20 ]; then
+  echo "you can drink."
+else
+  echo "you cannot drink."
+if
+```
+Q5. bashで、シェルスクリプトの中身を表示しながら実行（デバッグ）するにはどのようにしたらよいか答えなさい  
+A. ``[sh -x]コマンドでシェルスクリプトを実行する``
+
