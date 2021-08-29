@@ -13,3 +13,9 @@ https://www.engilaboo.com/git-conflict/
 https://vector-ium.com/github-conflict/  
 https://www.r-staffing.co.jp/engineer/entry/20190927_1  
 
+
+### "バージョン管理" としてのGitとは何か？  
+参考サイト  
+https://kinsta.com/jp/knowledgebase/git-vs-github/  
+https://tech-blog.rakus.co.jp/entry/20200529/git#Git%E3%81%A8%E3%81%AF  
+
