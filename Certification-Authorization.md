@@ -1,4 +1,4 @@
-<head>
+
   <style>
     summary {
         display: block;
@@ -7,7 +7,6 @@
         display: none;
     }
   </style>
-</head>
 
  ![title](https://media3.giphy.com/media/dP0WAyNyTKSNqNm6zn/giphy.gif?cid=ecf05e47vit498dvz0uxn91drn9zqfyuhrfob40os8etnypw&rid=giphy.gif&ct=g"title")
 
