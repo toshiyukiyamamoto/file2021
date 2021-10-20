@@ -1,1 +1,15 @@
- ![Qiita](https://media4.giphy.com/media/dvO9RSqYehy8rNUC0r/giphy.gif?cid=790b7611f23620caee9f5994537a62b3d3c3f5283f31b718&rid=giphy.gif&ct=g"Qiita")
+ ![title](https://media3.giphy.com/media/dP0WAyNyTKSNqNm6zn/giphy.gif?cid=ecf05e47vit498dvz0uxn91drn9zqfyuhrfob40os8etnypw&rid=giphy.gif&ct=g"title")
+
+**認証と認可**  
+①認証フロー ~認証ってなんなの?~  
+・認証とは「通信の相手が誰（何）であるかを確認すること」  
+認証の3要素  
+コンピュータの世界も含め、現実世界で「認証」を行うための要素には以下の3つがあります。
+1. WHAT YOU ARE (inherence factor)  
+顔貌、声、指紋、署名など、その人自身を提示して、相手にアイデンティティを確認させる方法です。小さなコミュニティでは、お互いの顔や声を相互に知っているため、面と向かえば相手が誰かはわかりますね。認証が完了する、ということです。
+2. WHAT YOU HAVE (possession factor)  
+身分証、携帯電話等、その人だけが持っているものを提示することによって認証をします。ある程度コミュニティが大きくなってくると、お互いの特徴を覚えきれなくなります。そんな場合は身分証明書を提示して、相手を認証すると思います。
+また、その身分証には顔写真がプリントしてあることも多く、結果として WYA に依存するものも少なくありません。
+3. WHAT YOU KNOW (knowledge factor)  
+パスワード、秘密の質問等、その人だけが知っていることを提示して認証をします。コンピュータの世界で最も多く使われるファクターでしょう。
+一般的に、上記3つのうちいずれか1つを満たすことで、認証が完了することが多いです。しかし、より確実な認証を行いたい場合は、Multi-Factor Authentication (MFA) という考え方で、複数のファクターを確認することもあります。
