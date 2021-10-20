@@ -1,7 +1,7 @@
  ![title](https://media3.giphy.com/media/dP0WAyNyTKSNqNm6zn/giphy.gif?cid=ecf05e47vit498dvz0uxn91drn9zqfyuhrfob40os8etnypw&rid=giphy.gif&ct=g"title")
 
 **認証と認可**  
-①認証フロー ~認証ってなんなの?~  
+①認証フロー -認証ってなんなの?-  
 ・認証とは「通信の相手が誰（何）であるかを確認すること」  
 認証の3要素  
 コンピュータの世界も含め、現実世界で「認証」を行うための要素には以下の3つがあります。
