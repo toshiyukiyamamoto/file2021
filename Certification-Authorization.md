@@ -94,3 +94,32 @@ MITB攻撃の場合は、フィッシングメールによって偽のオンラ�
 
 SNSなどのコミュニティにおいては、他のユーザーへの迷惑行為や犯罪予告などが、あなたになりすましておこなわれるため、あなた自身の社会的信用の失墜に繋がる可能性アリ
 </details>  
+
+### CORS(オリジン間リソース共有)について  
+「同一生成元ポリシー (Same-Origin Policy)」というポリシーによって設けられた制限を緩めるもの 
+
+#### 同一生成元ポリシー (Same-Origin Policy)
+<details><summary>同一生成元ポリシーとは？</summary>JavaScript で自由にやりとりできるところは、その JavaScript をとってきたところと同一の場所だけに制限する</details>  
+
+フロントエンドでは、別の場所にあるデータを表示したいことがよくある. このデータを表示する前に、ブラウザはまずデータを取得するためにサーバーにリクエストしなければならない. クライアントは、サーバーにデータを送り返すためにサーバーが必要とするすべての情報を含むHTTPリクエストを送信する  
+
+例) サーバー（api.mywebsite.com）からユーザー情報をサイト（www.mywebsite.com）に取得しようとしているとします。  
+![title](https://media3.giphy.com/media/dvO9RSqYehy8rNUC0r/giphy.gif?cid=790b761155a33dd1240de620d9d933a02abb485084a1f34f&rid=giphy.gif&ct=g
+"title")
+サーバーにHTTPリクエストを送っただけで、リクエストしたJSONデータが返ってくる
+
+まったく同じリクエストを別ドメインで試してみる
+(www.anotherdomain.comにあるサイトからリクエストを行う)
+![title](https://media3.giphy.com/media/PnDN1v3mtFYa3ZxZlD/giphy.gif?cid=790b76119534cbcbf6c4a6cab691007537d304eade2da0df&rid=giphy.gif&ct=g
+"title")
+デフォルトでは、リクエストのオリジンと同じオリジン（same origin）にあるリソースにしかアクセスできない→Error
+※リソースが異なる（サブ）ドメイン、プロトコル、ポートにある場合、そのリソースはクロスオリジン（cross origin）になる
+
+#### Q. もし、「同一生成元ポリシー」が存在しなかったら....
+例) Facebookで送ってきたウィルスリンクを誤ってクリックしてしまった場合、このリンクは銀行サイトをロードするiframeが埋め込まれた「悪質なサイト」にリダイレクトし、設定されたクッキーによって正常にログインできてしまう  
+
+この「悪質なサイト」の運営者は銀行サイトのDOMコンテンツを操作して、あなたに代わって自分の口座に送金することが可能
+![title](https://media4.giphy.com/media/cOd0lDBQUNIdRC3uvw/giphy.gif?cid=790b761183158d5434ebc9c4acd358c8b9e3ed1bf9159485&rid=giphy.gif&ct=g
+"title")
+
+同一生成元ポリシーは、同じオリジン（same origin）からのリソースにのみアクセスできるようにするためこのような
