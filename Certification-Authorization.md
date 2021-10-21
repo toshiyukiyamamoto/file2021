@@ -122,4 +122,7 @@ SNSなどのコミュニティにおいては、他のユーザーへの迷惑�
 ![title](https://media4.giphy.com/media/cOd0lDBQUNIdRC3uvw/giphy.gif?cid=790b761183158d5434ebc9c4acd358c8b9e3ed1bf9159485&rid=giphy.gif&ct=g
 "title")  
 
-同一生成元ポリシーは、同じオリジン（same origin）からのリソースにのみアクセスできるようにするためこのような
+##### 同一生成元ポリシーは、同じオリジン（same origin）からのリソースにのみアクセスできるようにするため例2)を防ぐことができる  
+![title](https://media3.giphy.com/media/JOFTPF7SBXxZ1kidaO/giphy.gif?cid=790b76113277200f3edf7e3ddc0866b515c16f356942ed6c&rid=giphy.gif&ct=g
+"title")  
+上記の場合、オリジンのwww.evilwebsite.comがwww.bank.comからクロスオリジンのリソースにアクセスしようとしています。しかし、同一生成元ポリシーがこれを阻止し、悪質なサイトの運営者がわたし達の銀行データにアクセスできないようにしてくれる!
