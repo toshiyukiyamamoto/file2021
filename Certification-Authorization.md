@@ -105,13 +105,13 @@ SNSなどのコミュニティにおいては、他のユーザーへの迷惑�
 
 例) サーバー（api.mywebsite.com）からユーザー情報をサイト（www.mywebsite.com）に取得しようとしているとします。  
 ![title](https://media3.giphy.com/media/dvO9RSqYehy8rNUC0r/giphy.gif?cid=790b761155a33dd1240de620d9d933a02abb485084a1f34f&rid=giphy.gif&ct=g
-"title")
+"title")  
 サーバーにHTTPリクエストを送っただけで、リクエストしたJSONデータが返ってくる
 
 まったく同じリクエストを別ドメインで試してみる
 (www.anotherdomain.comにあるサイトからリクエストを行う)
 ![title](https://media3.giphy.com/media/PnDN1v3mtFYa3ZxZlD/giphy.gif?cid=790b76119534cbcbf6c4a6cab691007537d304eade2da0df&rid=giphy.gif&ct=g
-"title")
+"title")  
 デフォルトでは、リクエストのオリジンと同じオリジン（same origin）にあるリソースにしかアクセスできない→Error
 ※リソースが異なる（サブ）ドメイン、プロトコル、ポートにある場合、そのリソースはクロスオリジン（cross origin）になる
 
@@ -120,6 +120,6 @@ SNSなどのコミュニティにおいては、他のユーザーへの迷惑�
 
 この「悪質なサイト」の運営者は銀行サイトのDOMコンテンツを操作して、あなたに代わって自分の口座に送金することが可能
 ![title](https://media4.giphy.com/media/cOd0lDBQUNIdRC3uvw/giphy.gif?cid=790b761183158d5434ebc9c4acd358c8b9e3ed1bf9159485&rid=giphy.gif&ct=g
-"title")
+"title")  
 
 同一生成元ポリシーは、同じオリジン（same origin）からのリソースにのみアクセスできるようにするためこのような
