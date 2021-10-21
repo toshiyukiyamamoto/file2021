@@ -22,8 +22,7 @@ OAuthを利用すると個別にIDやパスワードを入力することなく�
 | リフレッシュトークン | アクセストークンの有効期限が過ぎると利用される | 長い |  
 
 #### 例) APIアクセスの通信シーケンス図(有効なトークンが無い場合)
-![title](https://lh3.googleusercontent.com/uyXsV2YVNyvjXV-rB-aN2ypc7c41MJ_u2Wu04sa9SFikK0lgYfK7g_sVnPDeXWn3gBV8WfWaFqhcxhdRbqvshp9yOtoLtXwGx5Hw3riw7TfPVspo7M5cLUvZ5RAIOlVNzNyd-cSnowDr56Pwqby3IQ4-YbgH4Q6SPsHBiHuEqqJV402BeNWHA8qr3i0BYITLbfgvTDPv5Trnx-NO37UUpOh5kogQyt_PsanHQnxEwOrUmZ17uOS5tlLqiNnR2Fh4Y8fQnUFmiSFufn64pWWbYOAxlNXKBIpl2ZCH3T8NGQcYLN_IWT9v1n61UJVODzj1x4x1jf_TQUJv9gHywFCGqwNeoyH9wk1huQANOqOO_RF0JTwrnswx8VPWfADstOs-qpm_K9VFz9QBAyD1w4HHTDO8LAW8JynFzlS1CkV7oIw0Q0AuNE7W8JEFDX8e712Kemj4y7rhf0DGRl0Vyk4mHCpn3RTb3MlnlHbyKGDzLmVI8w_qA5aXDvH5En92O7t2wY0I3BSdAlJ-CloIspD6QafFZJI6en7FrIXAy1mb8Vy1yVWhowp66X-Gieb-9r7I-2j7xEw4wFUFPCOqc-9KWPRwXa_flIuMJyFpJ8PVJD3TaubYTSuz2Bgwur6pgxtvTEuKFHQDdjyb7XQtjw0N0G64Rdy1T-lKgFXSK0OD8h6hBzPgwHinv9q4TzY_GVg_T7rc1tp2q46B27yaOYA50zNY=w2790-h1578-no?authuser=2
-"title")
+![タイトル](./picture/api-cequence.png)  
 
 #### 認証ってなんなの?  
 ・認証とは「通信の相手が誰（何）であるかを確認すること」  
