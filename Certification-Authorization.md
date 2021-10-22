@@ -1,5 +1,4 @@
-
- ![title](https://media3.giphy.com/media/dP0WAyNyTKSNqNm6zn/giphy.gif?cid=ecf05e47vit498dvz0uxn91drn9zqfyuhrfob40os8etnypw&rid=giphy.gif&ct=g"title")
+![title](https://media3.giphy.com/media/dP0WAyNyTKSNqNm6zn/giphy.gif?cid=ecf05e47vit498dvz0uxn91drn9zqfyuhrfob40os8etnypw&rid=giphy.gif&ct=g"title")
 
 ## 認証と認可
 ### 認証と認可をどうやってハッキングしていくか?   
