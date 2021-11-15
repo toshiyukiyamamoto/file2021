@@ -5,3 +5,5 @@
  - セッション  
  - cookie/Webstorage  
 
+参考：  
+本「Webを支える技術」6章
