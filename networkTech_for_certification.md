@@ -56,3 +56,13 @@
   ![title](https://lh3.googleusercontent.com/pw/AM-JKLX08uLLb2DG_aXSe5fO_O-aUjV7Y7_0aAObXf-P91-UdoY9stHlHp2r3OGSB2k0q4gwPmUeqmg8MisathJBJH_lFKpNGC3uU876UDqXy8C3qEa5-nM7bO7k8t1JgfziSmnmO_sBtegmsx5c5ZNUCzxZWhIjoaXW5OoJLHVnPOtjzk9KerO8nZjfDtQW2Z7G-JWyn9zZwefafAdn5pdH_CMO0-1x1P5mbcCme1Uk25XwybUtoVBPE--k-62SmtDWhUbmPMqMDCnSjeHQUdIL6aKUaMr8pNAKLCrZusdP_tVguY5Gset7oYMZbnZeH2xP5WcB_nVyT8iIoUkj0onf-xLLGksLya1r_z7D2Ifi3K-jLBWSNaUF_GMYilAkx6xGwhmih-BL5-S1jaba2cNr-x7DoedhWEJI_EAHoTllAZSmwEScFby0A8fKF_Yhlyx7l586WIbPuI6PkVUILbsgOsvQ0l7aUCLeFSCpArZqFtBFXpaUAaHU2Ss5kP2wldKyRUGHggOeH9D-dAy7FMIOaC7zUPZoqz-ZMt-sFtJ5Lz4IitElC4ssF--GSftKEpoNBHwah78GcrPYfYZ_22UfC2r4TjmabnZ5OeFf-q9sfUaId9sSX3egi3blBkp4JpOa0t-TJbsmreSIIJeohenQuKbzpwNuRwXo7_XSJJsrRLIrVIlCXek5kPBt2DFscfO-83FXVVO1839nnLPpiPXyWAo68uo7na7aLaERKormgRbfLQE=w2000-h664-no?authuser=1&authuser=1"title")  
 
 ## セッション  
+
+  
+## Cookie（クッキー）  
+<details><summary>Cookieとは？</summary>   
+<p>WebサーバアプリケーションがWebブラウザに対し特定の情報を保持させておく仕組み</p>
+</details>  
+
+Cookieによって各ユーザが閲覧するWebページの内容をカスタマイズすることなどが出来る.  
+WebブラウザでWebサービスにアクセスをする際にログインをして利用する場合がありますが、事前にログインをしているときとログインが必要な場合があるが、これはサーバがログイン情報を記憶しているのではなくクライアントマシンのWebブラウザのCookieに記憶されており、以前にログインしたことあるサイトであればIDとパスワードの情報を同時に送信しているので自動的にログインが出来ていることなる.  
+CookieはHTTPリクエストヘッダに格納されておりサーバに送信されます。
