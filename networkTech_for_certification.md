@@ -1,5 +1,6 @@
 # 認証を支えるネットワーク技術
-![title](https://media0.giphy.com/media/10PNyg7YOcaBQA/giphy.gif?cid=ecf05e47syqs9c3autgdgvctxy7v777ntrvbn6s9eniqw8ld&rid=giphy.gif&ct=g"title")
+![title](https://media0.giphy.com/media/10PNyg7YOcaBQA/giphy.gif?cid=ecf05e47syqs9c3autgdgvctxy7v777ntrvbn6s9eniqw8ld&rid=giphy.gif&ct=g"title")  
+
 ### 目次  
  - TCP/IP  
  - セッション  
