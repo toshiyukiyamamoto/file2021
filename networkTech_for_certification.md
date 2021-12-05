@@ -1,5 +1,5 @@
 # 認証を支えるネットワーク技術
-
+![title](https://media0.giphy.com/media/10PNyg7YOcaBQA/giphy.gif?cid=ecf05e47syqs9c3autgdgvctxy7v777ntrvbn6s9eniqw8ld&rid=giphy.gif&ct=g"title")
 ### 目次  
  - TCP/IP  
  - セッション  
@@ -56,8 +56,12 @@
   ![title](https://lh3.googleusercontent.com/eh0KnFTywly7n5foTa_brEjtVV2L7yvfEuI-LDUPb5UU8j4G_oP52T_x4Vu86IJLAHnhjhFRmbolYy7q_sn11xhdxS3wV1ljIM4_kpUI38dc4cUpTn28tl06osx1Q9CRjL638i_ZBw-v2c_TwLjt53H-gcjHw7i3-a5iGRa6k66ZnGicOBfzvkz2Uy06aYgqm3T_2lu22K4YTinCNCkNWTVjpZRTwNysBjwcSIRW0XLR0M2ZGsmjRuZgJcCNIyBHf_SaESIN4Sl5nGZu0hNtEAMbUr3RoPH1Twgz3S3QV0GPfoL9oNgi-njVkvTOqkYebNdAeDTfbn3IFSrALidmArVy68sRDdWpqzMvkXL7Q1PcSviiHCimU81srJmmc-QHH9ZynGx2mjtjxLZo7gvO4ihiY8ivmfXUq5uaxMBGVdoE6gCN561czjv9mrVTVgDIo6EwkXgNGR7UA4B-F3TkvyNRj0OYT0IRlfuPLHZ_emffwhAVLe_THcKcc55Wu81IRXEskp-J4lILj_5qkg3t-h27izaJLRkZvH2bAm2C2LlHGnT-cnxjJWJDHU4s_yRQEroe79vMy3mxGIvaXOih5mYFc65BRiaVZJAGNtJ2RoBRNTi58Z6idt1EukJYz7kUAm8wnh76kfmyMnIk8ar6T5WsjNxte3vtjzMLkGKhgq1qQnyy0Mg2Pw66B0PE0KZSmAPeAQYIIrvZLzAfgiIdxpz3=w2000-h664-no?authuser=1"title")  
 
 ## セッション  
+https://www.ipa.go.jp/security/awareness/administrator/secure-web/chap6/6_session-1.html  
+https://qiita.com/7968/items/ce03feb17c8eaa6e4672
 
-  
+ - Cookieに一意の値を入れ、リクエストするときにCookieにある値も一緒に送ってもらうことで、識別可能になり、一連の処理として扱えるようになる  
+ - Cookieを利用することで、セッション管理が行える  
+
 ## Cookie（クッキー）  
 <details><summary>Cookieとは？</summary>   
 <p>WebサーバアプリケーションがWebブラウザに対し特定の情報を保持させておく仕組み</p>
@@ -65,4 +69,8 @@
 
  - Cookieによって各ユーザが閲覧するWebページの内容をカスタマイズすることなどが出来る.  
  - WebブラウザでWebサービスにアクセスをする際にログインをして利用する場合がありますが、事前にログインをしているときとログインが必要な場合があるが、これはサーバがログイン情報を記憶しているのではなくクライアントマシンのWebブラウザのCookieに記憶されており、以前にログインしたことあるサイトであればIDとパスワードの情報を同時に送信しているので自動的にログインが出来ていることなる.  
- - CookieはHTTPリクエストヘッダに格納されておりサーバに送信されます。
+ - CookieはHTTPリクエストヘッダに格納されておりサーバに送信されます.  
+  
+## Web Storage API
+https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API
+
