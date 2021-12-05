@@ -1,5 +1,5 @@
 # 認証を支えるネットワーク技術
-![title](https://media0.giphy.com/media/10PNyg7YOcaBQA/giphy.gif?cid=ecf05e47syqs9c3autgdgvctxy7v777ntrvbn6s9eniqw8ld&rid=giphy.gif&ct=g"title")  
+![title](https://media2.giphy.com/media/10PNyg7YOcaBQA/giphy.gif?cid=790b7611d1d29eb1f9aeed788c4c6f63b5e2770fc22d3701&rid=giphy.gif&ct=g"title")  
 
 ### 目次  
  - TCP/IP  
