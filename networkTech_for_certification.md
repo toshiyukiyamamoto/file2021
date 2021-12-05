@@ -38,6 +38,21 @@
 </details>  
 <details><summary>2層 インターネット層</summary>   
 <p>複数のネットワーク間のデータ転送を行う役割</p>
-<p>最下層からトランスポート層まで正しく機能すると、送信元と宛先のアプリケーション間でデータの送受信ができるようになる</p>
+<p>ネットワークはたくさんのネットワークが存在し、そこに色々な機器を接続していることで実現</p>
 <p>主要プロトコル：「IP」「ICMP」「ARP」</p>
-</details>
+<p>「ルータ」：多数のネットワーク同士を接続してデータ転送を行う</p>  
+<p>「ルーティング」：ルータによるネットワーク間のデータ転送</p> 
+<p>「エンドツーエンド通信」：ネットワーク間のデータ転送</p>
+</details>  
+
+![title](https://lh3.googleusercontent.com/NUALJ9zvguvqvqg3xTXL9Fj8R6YpPYDCkm1qDNYlrwzq3tbBQpjUHKdYq7QMxEx9lUjVRwlQydFPLTt-QBOMhFYl3qmgmTTMdFtxcDc5v331cQ-GQ8gdVg8kqkJCiu_YjIn-nADNfKlaGkAo7wOm6GJcTii4wxtra9MteeWskDbvmSHh8K5PiibUyngKbMm15b-d13vOT8oi50AwL0y3AIVVCMKqxLFSv6-S96ODzYk8_-JYpP6Rkw2z3DMNflaX6UiMcqDa8YEkeyhgnm1AVix0Xm-UsAHjMGhUb5zekdrs7CRXUpCZYoWaXV5Q89OEiJpkGZRw1lou2QofotWl0c0TUafA3ybBxp_zUmwM18dSwDWljFkbWck6aEwIR4Kj-k1pcDnk_cliXDfJZwLxYfmCcADIo9HVyxTJngxl4p0B_xhnVEd7AZMonoItGK8r3yXV-xFQhdmGQRbFGBH5T31Y4aSI_sUgAEj_k140eVPpEPkeqt0ZfTCwmyyxo7ZTCt_282ilRPCueyetbGNKGcLi6ZjS1qwLgR6Qarrw8rzcOlwuTMDPmKtCqbZKldx2-gIveknhWX16uKR60QKM3ehbtB9IGiITBygoWruMxwfVpSeUWqkU6l91sNqy7Ue3LQpK_POsJJZxKTj6Q7dfl1h90X-6F4-_6IXEX7OgYEX5BrxZhHyu_4BN_axUGLVsKJWlt6UwrLGCge0T4wyV8wSn=w1900-h555-no?authuser=1"title")  
+  
+<details><summary>1層 ネットワークインターフェイス層</summary>   
+<p>同一のネットワーク内でデータを転送する役割</p>
+<p>例)ルータやレイヤ3スイッチで区切られる範囲 or レイヤ2スイッチで構成する範囲</p>
+<p>主要プロトコル：有線の「Ethernet（イーサーネット）」, 無線LAN（Wi-Fi) , PPP</p>
+</details>  
+  
+  ![title](https://lh3.googleusercontent.com/pw/AM-JKLX08uLLb2DG_aXSe5fO_O-aUjV7Y7_0aAObXf-P91-UdoY9stHlHp2r3OGSB2k0q4gwPmUeqmg8MisathJBJH_lFKpNGC3uU876UDqXy8C3qEa5-nM7bO7k8t1JgfziSmnmO_sBtegmsx5c5ZNUCzxZWhIjoaXW5OoJLHVnPOtjzk9KerO8nZjfDtQW2Z7G-JWyn9zZwefafAdn5pdH_CMO0-1x1P5mbcCme1Uk25XwybUtoVBPE--k-62SmtDWhUbmPMqMDCnSjeHQUdIL6aKUaMr8pNAKLCrZusdP_tVguY5Gset7oYMZbnZeH2xP5WcB_nVyT8iIoUkj0onf-xLLGksLya1r_z7D2Ifi3K-jLBWSNaUF_GMYilAkx6xGwhmih-BL5-S1jaba2cNr-x7DoedhWEJI_EAHoTllAZSmwEScFby0A8fKF_Yhlyx7l586WIbPuI6PkVUILbsgOsvQ0l7aUCLeFSCpArZqFtBFXpaUAaHU2Ss5kP2wldKyRUGHggOeH9D-dAy7FMIOaC7zUPZoqz-ZMt-sFtJ5Lz4IitElC4ssF--GSftKEpoNBHwah78GcrPYfYZ_22UfC2r4TjmabnZ5OeFf-q9sfUaId9sSX3egi3blBkp4JpOa0t-TJbsmreSIIJeohenQuKbzpwNuRwXo7_XSJJsrRLIrVIlCXek5kPBt2DFscfO-83FXVVO1839nnLPpiPXyWAo68uo7na7aLaERKormgRbfLQE=w2000-h664-no?authuser=1&authuser=1"title")  
+
+## セッション  
