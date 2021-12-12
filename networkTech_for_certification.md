@@ -62,8 +62,8 @@
 
 ### Cookieの役割  
 HTTPは一往復(リクエストし→レスポンスする)で通信が切断される
-![title](./pic_certification/pic4.jpg)  
-  
+<img src="./pic_certification/pic4.jpg" width="350">
+
 そのため、サーバーは以前の状態を全く覚えていない!(前のページからの続き？/関連したアクセス? etc..)
 
 
