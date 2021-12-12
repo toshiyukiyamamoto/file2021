@@ -3,11 +3,9 @@
 
 ### 目次  
  - TCP/IP  
+ - cookie
  - セッション  
- - cookie/Webstorage  
-
-参考：  
-本「Webを支える技術」6章  
+ - Webstorage  
 
 ## はじめに
 <details><summary>認証とは？</summary>   
@@ -56,13 +54,6 @@
   
 ![title](./pic_certification/pic3.jpg)  
 
-## セッション  
-https://www.ipa.go.jp/security/awareness/administrator/secure-web/chap6/6_session-1.html  
-https://qiita.com/7968/items/ce03feb17c8eaa6e4672
-
- - Cookieに一意の値を入れ、リクエストするときにCookieにある値も一緒に送ってもらうことで、識別可能になり、一連の処理として扱えるようになる  
- - Cookieを利用することで、セッション管理が行える  
-
 ## Cookie（クッキー）  
 <details><summary>Cookieとは？</summary>   
 <p>WebサーバアプリケーションがWebブラウザに対し特定の情報を保持させておく仕組み</p>
@@ -72,6 +63,13 @@ https://qiita.com/7968/items/ce03feb17c8eaa6e4672
  - WebブラウザでWebサービスにアクセスをする際にログインをして利用する場合がありますが、事前にログインをしているときとログインが必要な場合があるが、これはサーバがログイン情報を記憶しているのではなくクライアントマシンのWebブラウザのCookieに記憶されており、以前にログインしたことあるサイトであればIDとパスワードの情報を同時に送信しているので自動的にログインが出来ていることなる.  
  - CookieはHTTPリクエストヘッダに格納されておりサーバに送信されます.  
   
+## セッション  
+https://www.ipa.go.jp/security/awareness/administrator/secure-web/chap6/6_session-1.html  
+https://qiita.com/7968/items/ce03feb17c8eaa6e4672
+
+ - Cookieに一意の値を入れ、リクエストするときにCookieにある値も一緒に送ってもらうことで、識別可能になり、一連の処理として扱えるようになる  
+ - Cookieを利用することで、セッション管理が行える  
+
 ## Web Storage API
 https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API
 
