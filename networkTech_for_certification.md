@@ -116,15 +116,29 @@ HTTPのセッションは「セッションID」を使って同一のセッシ�
 ネットショッピングの場合、ログインし・商品をカートに入れ・購入 まで一連の処理（セッション）として扱いたいが、HTTPはステートレスのため、一連の処理（セッション）として扱うことができない...  
 ⬇︎そこで  
 **Cookieを利用して、一連の処理（セッション）として扱う.**  
- - Cookieに一意の値を入れ、リクエストするときにCookieにある値も一緒に送ってもらうことで、識別可能になり、一連の処理として扱えるようになる  
- - Cookieを利用することで、セッション管理が行える 
+ - Cookieに一意の値を入れ、リクエストするときにCookieにある値も一緒に送ってもらうことで識別可能になり、一連の処理として扱えるようになる  
+ - Cookieを利用することで、セッション管理が可能に
 
 ### PHPでセッションを管理 
+PHPでセッションを開始するには**session_start()**関数を使用する  
+```
+session_start();
+```  
+session_start()を記述することで、自動でセッションIDを発行してくれる！
+<details><summary>セッションIDとは？</summary>  
+<p>一意の値の役割をする</p>
+<p>セッションを管理するために、Cookieに一意の値を入れて、リクエストしてもらうことで、一連の処理として扱える</p>
+</details>  
+セッションIDを発行する際は、セッションIDごとにセッションファイルを作成し、サーバーに保存される  
+→作成されたセッションファイルには任意の値を入れることができる  
+
+***session_start()は、リクエストメッセージにセッションIDがあるのか、ないのかで挙動が変わる***  
+
 
 https://www.ipa.go.jp/security/awareness/administrator/secure-web/chap6/6_session-1.html  
 https://qiita.com/7968/items/ce03feb17c8eaa6e4672
   
-  
+
 
 ## Web Storage API
 https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API
