@@ -111,22 +111,20 @@ Cookie: a=ba
 HTTPのセッションは「セッションID」を使って同一のセッションを管理する  
 セッションIDはHTTP cookieに保存してHTTPヘッダに格納して送受信したり、URLに埋め込んでGETPメソッドで送受信したりする.  
 
-### セッション管理
-=======================================  
+### セッションの管理  
 例) ネットショッピング  
 ネットショッピングの場合、ログインし・商品をカートに入れ・購入 まで一連の処理（セッション）として扱いたいが、HTTPはステートレスのため、一連の処理（セッション）として扱うことができない...  
-   ⬇︎そこで  
-<details><summary>Cookieを利用して、一連の処理（セッション）として扱う.</summary>  
-Cookieに一意の値を入れリクエストするときにCookieにある値も一緒に送ってもらうことで、識別可能になり、一連の処理として扱うことが可能に!
-Cookieを利用することで、セッション管理が行える</details>  
+⬇︎そこで  
+**Cookieを利用して、一連の処理（セッション）として扱う.**  
+ - Cookieに一意の値を入れ、リクエストするときにCookieにある値も一緒に送ってもらうことで、識別可能になり、一連の処理として扱えるようになる  
+ - Cookieを利用することで、セッション管理が行える 
 
-  
+### PHPでセッションを管理 
 
 https://www.ipa.go.jp/security/awareness/administrator/secure-web/chap6/6_session-1.html  
 https://qiita.com/7968/items/ce03feb17c8eaa6e4672
-
- - Cookieに一意の値を入れ、リクエストするときにCookieにある値も一緒に送ってもらうことで、識別可能になり、一連の処理として扱えるようになる  
- - Cookieを利用することで、セッション管理が行える  
+  
+  
 
 ## Web Storage API
 https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API
