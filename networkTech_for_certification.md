@@ -24,7 +24,12 @@
 <p>IPアドレスと呼ばれる数値を付与しその数字を用いて通信先の指定及び呼び出しを行いネットワーク通信を行うこと</p>
 </details>  
   
-### TCP/IPプロトコル通信のネットワークアーキテクチャ
+### TCP/IPプロトコル通信のネットワークアーキテクチャ  
+参考  
+https://www.itmanage.co.jp/column/tcp-ip-protocol/  
+https://www.itmanage.co.jp/column/osi-reference-model/  
+
+
 ![title](./pic_certification/pic1.jpg)  
 
 <details><summary>4層 アプリケーション層</summary>   
@@ -219,4 +224,5 @@ window.localStorage.clear();
 https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API
 
   
-## まとめ -認証とどのように関係してるの？-
+## 6.まとめ -認証とどのように関係してるの？-
+  
