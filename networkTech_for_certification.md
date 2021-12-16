@@ -6,7 +6,8 @@
 2. TCP/IP  
 3. Cookie
 4. セッション  
-5. Webstorage  
+5. Webstorage   
+6. まとめ -認証とどのように関係してるの？-
 
 ## 1.はじめに
 <details><summary>認証とは？</summary>   
@@ -217,3 +218,5 @@ window.localStorage.clear();
 
 https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API
 
+  
+## まとめ -認証とどのように関係してるの？-
