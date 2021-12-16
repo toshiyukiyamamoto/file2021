@@ -154,9 +154,20 @@ https://qiita.com/7968/items/ce03feb17c8eaa6e4672
 #### Web StorageとCookieとの比較
 |                |      有効期限      |      データ量      | サーバーへのデータ送信 | 操作 |
 |:-------------------|:--------------------|:--------------------|:-------|:----
-| LocalStorage | 永続的に有効 | ドメインに対して5MB | データ利用時のみ | Javascript
-| Session Storage | ウィンドウ・タブを閉じるまで | ドメインに対して5MB | データ利用時のみ | Javascript
-| Cookie | ウィンドウ・タブを閉じるまでor指定期限まで | 4KB |  リクエスト毎に自動送信 | サーバー側の言語(PHPなど)
+| LocalStorage | 永続的に有効 | ドメインに対して5MB~10MB | データ利用時のみ | Javascript
+| SessionStorage | ウィンドウ・タブを閉じるまで | ドメインに対して5MB~10MB | データ利用時のみ | Javascript
+| Cookie | ウィンドウ・タブを閉じるまでor任意設定まで | 4KB |  リクエスト毎に自動送信 | サーバー側の言語(PHPなど)
+  
+### Web StorageとCookieを比べてみて...  
+ - ユーザー情報を保存するにはCookie(サーバー側の言語で書かれることが多い)  
+ - Cookieはサーバアクセスするたびに自動送信するのでセキュリティは低い？  
+ - Cookieは膨大なデータは扱い辛い(サーバが同じコンピュータに対して発行できるCookieの数が20個)  
+ - Webstorageはサーバとの通信が発生しない(WebStorageとはブラウザにデータを保存しておく為の仕組み)  
+ - Cookieはwebstorageより有効期限を自由に設定できる
+ - Webstorageの魅力的な保存容量  
+ - Webstorageは[個人情報レベルの貴重情報]の保存には適さない
+ 　→クロスサイトスクリプティング（XSS）などの対策をしていないとデータを盗まれる可能性アリ  
+ 
 
 https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API
 
