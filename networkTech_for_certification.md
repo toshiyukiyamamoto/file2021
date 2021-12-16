@@ -2,16 +2,17 @@
 ![title](./pic_certification/giphybetworkgif.gif)  
 
 ### 目次  
- - TCP/IP  
- - cookie
- - セッション  
- - Webstorage  
+1. はじめに
+2. TCP/IP  
+3. Cookie
+4. セッション  
+5. Webstorage  
 
-## はじめに
+## 1.はじめに
 <details><summary>認証とは？</summary>   
 <p>通信の相手が誰（何）であるかを確認すること</p></details>  
 
-## TCP/IP
+## 2.TCP/IP
 <details><summary>TCP/IPとは？</summary>   
 <p>コンピュータネットワークにおいて、世界標準的に利用されている通信規則。機器やOSが異なっても共通のプロトコルを用いて通信を成立させるもの</p></details>  
 <details><summary>TCP(Transmission Control Protocol)</summary>
@@ -54,7 +55,7 @@
   
 ![title](./pic_certification/pic3.jpg)  
 
-## Cookie（クッキー）  
+## 3.Cookie（クッキー）  
 <details><summary>Cookieとは？</summary>   
 <p>正式名称：HTTP Cookie</p>
 <p>WebサーバアプリケーションがWebブラウザに対し特定の情報を保持させておく仕組み</p>
@@ -104,7 +105,7 @@ Cookie: a=ba
  - WebブラウザでWebサービスにアクセスをする際にログインをして利用する場合がありますが、事前にログインをしているときとログインが必要な場合があるが、これはサーバがログイン情報を記憶しているのではなくクライアントマシンのWebブラウザのCookieに記憶されており、以前にログインしたことあるサイトであればIDとパスワードの情報を同時に送信しているので自動的にログインが出来ていることなる.  
  - CookieはHTTPリクエストヘッダに格納されておりサーバに送信されます.  
   
-## セッション  
+## 4.セッション  
 <details><summary>セッションとは？</summary>   
 <p>コンピュータネットワーク用語で、一連の通信のこと</p>
 <p>接続を確立してから切断するまでが一つのセッション</p></details> 
@@ -148,7 +149,7 @@ https://qiita.com/7968/items/ce03feb17c8eaa6e4672
   
 
 
-## Web Storage  
+## 5.Web Storage  
 クライアント側にデータをローカル環境に記録するための仕組み  
 
 #### Web Storageの使い所  
