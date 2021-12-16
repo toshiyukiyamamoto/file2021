@@ -165,9 +165,9 @@ https://qiita.com/7968/items/ce03feb17c8eaa6e4672
  - Webstorageはサーバとの通信が発生しない(WebStorageとはブラウザにデータを保存しておく為の仕組み)  
  - Cookieはwebstorageより有効期限を自由に設定できる
  - Webstorageの魅力的な保存容量  
- - Webstorageは[個人情報レベルの貴重情報]の保存には適さない
+ - Webstorageは[個人情報レベルの貴重情報]の保存には適さない  
  　→クロスサイトスクリプティング（XSS）などの対策をしていないとデータを盗まれる可能性アリ  
- 
+
 
 https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API
 
