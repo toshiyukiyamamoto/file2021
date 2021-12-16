@@ -189,7 +189,7 @@ window.sessionStorage.clear();
 ```  
 ### LocalStorageの使用方法  
 >オリジン単位([http://example.com:80/]のようにな**ドメイン：ポート番号**の組み合わせ)でデータを管理できるため、別ウィンドウやタブで同じ情報を共有できる.  
->有効期限はなく永久的に保存されます
+>有効期限はなく永久的に保存される.
 ```
 //データ保存
 window.localStorage.setItem(key, value);
