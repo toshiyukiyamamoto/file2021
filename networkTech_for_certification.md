@@ -151,6 +151,10 @@ https://qiita.com/7968/items/ce03feb17c8eaa6e4672
 ## Web Storage  
 クライアント側にデータをローカル環境に記録するための仕組み  
 
+#### Web Storageの使い所  
+ - お知らせや通知など表示に関する各種設定情報  
+ - お気に入りや商品のカート追加などのユーザーによる操作やアクションによる情報
+
 #### Web StorageとCookieとの比較
 |                |      有効期限      |      データ量      | サーバーへのデータ送信 | 操作 |
 |:-------------------|:--------------------|:--------------------|:-------|:----
@@ -167,7 +171,40 @@ https://qiita.com/7968/items/ce03feb17c8eaa6e4672
  - Webstorageの魅力的な保存容量  
  - Webstorageは[個人情報レベルの貴重情報]の保存には適さない  
  →クロスサイトスクリプティング（XSS）などの対策をしていないとデータを盗まれる可能性アリ  
-
+  
+### SessionStorageの使用方法  
+>保存データはウィンドウやタブを閉じるまで有効. タブが閉じられた時にデータが削除される.
+```  
+//データ保存
+window.sessionStorage.setItem(key, value);
+ 
+//データ取得
+window.sessionStorage.getItem(key);
+ 
+// データの削除
+window.sessionStorage.removeItem(key);
+ 
+//初期化（データをすべて削除）
+window.sessionStorage.clear();
+```  
+### LocalStorageの使用方法  
+>オリジン単位([http://example.com:80/]のようにな**ドメイン：ポート番号**の組み合わせ)でデータを管理できるため、別ウィンドウやタブで同じ情報を共有できる.  
+>有効期限はなく永久的に保存されます
+```
+//データ保存
+window.localStorage.setItem(key, value);
+ 
+//データ取得
+window.localStorage.getItem(key);
+ 
+// データの削除
+window.localStorage.removeItem(key);
+ 
+//初期化（データをすべて削除）
+window.localStorage.clear();
+```  
+※localStorageを使った場合、データを上書きする分には良いが、保存するデータが増えていくと有効期限はなく永久的なため必要なくなったゴミデータが溜まってしまう  
+→sessionStorageでいくのか/localStorageでいってもどこかのタイミングでデータを削除する処理をさせるなど、考えて使った方がいいかもしれない.
 
 https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API
 
